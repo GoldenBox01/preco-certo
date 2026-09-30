@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Preço Certo | Saiba quanto cobrar</title>
+  <meta name="description" content="Uma forma simples de calcular o preço de venda considerando custos, taxas, impostos e margem.">
+  <meta name="theme-color" content="#071b33">
+
+  <!-- Meta Pixel -->
+  <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1146126567469476');
+    fbq('track', 'PageView');
+    fbq('track', 'ViewContent');
+  </script>
+  <noscript>
+    <img height="1" width="1" style="display:none"
+      src="https://www.facebook.com/tr?id=1146126567469476&ev=PageView&noscript=1"/>
+  </noscript>
+
+  <style>
+    :root{
+      --bg:#06182d;
+      --bg2:#0a2340;
+      --card:#102f50;
+      --text:#f7fbff;
+      --muted:#b8c9d9;
+      --accent:#14e0a1;
+      --accent2:#0cc58d;
+      --line:rgba(255,255,255,.10);
+      --shadow:0 20px 55px rgba(0,0,0,.28);
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      background:linear-gradient(180deg,var(--bg),#081f38 48%,#f4f7fa 48%,#f4f7fa);
+      color:var(--text);
+      line-height:1.5;
+    }
+    a{text-decoration:none;color:inherit}
+    .wrap{width:min(1080px,92%);margin:auto}
+    header{padding:18px 0}
+    .brand{font-weight:900;letter-spacing:.04em;font-size:1.05rem}
+    .brand span{color:var(--accent)}
+    .hero{padding:52px 0 70px;text-align:center}
+    .eyebrow{
+      display:inline-block;padding:7px 12px;border:1px solid rgba(20,224,161,.35);
+      border-radius:999px;color:var(--accent);font-size:.82rem;font-weight:800;
+      text-transform:uppercase;letter-spacing:.06em
+    }
+    h1{font-size:clamp(2.15rem,8vw,4.7rem);line-height:1.02;margin:18px auto 18px;max-width:900px}
+    .hero p{font-size:clamp(1rem,2.6vw,1.25rem);color:var(--muted);max-width:720px;margin:0 auto 28px}
+    .cta{
+      display:inline-flex;align-items:center;justify-content:center;gap:8px;
+      min-height:58px;padding:0 28px;border-radius:13px;background:var(--accent);
+      color:#04251b;font-weight:900;font-size:1.05rem;box-shadow:0 12px 30px rgba(20,224,161,.18);
+      transition:.2s transform,.2s background;
+    }
+    .cta:hover{transform:translateY(-2px);background:#26efb0}
+    .micro{font-size:.84rem;color:#9eb3c7;margin-top:12px}
+    main{color:#13273b}
+    section{padding:72px 0}
+    .section-title{text-align:center;font-size:clamp(1.8rem,5vw,2.8rem);line-height:1.1;margin:0 auto 14px}
+    .section-sub{text-align:center;color:#637488;max-width:720px;margin:0 auto 38px}
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .card{
+      background:white;border:1px solid #e2e8ef;border-radius:18px;padding:24px;
+      box-shadow:0 12px 35px rgba(23,43,66,.07)
+    }
+    .card h3{margin:8px 0 8px;font-size:1.12rem}
+    .card p{margin:0;color:#637488}
+    .icon{
+      width:42px;height:42px;border-radius:12px;background:#e8fff7;color:#079b70;
+      display:grid;place-items:center;font-weight:900
+    }
+    .dark{
+      background:linear-gradient(135deg,#08213c,#0d3154);
+      color:white;border-radius:24px;padding:34px;box-shadow:var(--shadow)
+    }
+    .dark .section-title,.dark h2{color:white}
+    .dark p{color:#bdd0e1}
+    .example{
+      display:grid;grid-template-columns:1fr 1fr;gap:18px;align-items:stretch
+    }
+    .calc{background:#0b2745;border:1px solid var(--line);border-radius:18px;padding:24px}
+    .row{display:flex;justify-content:space-between;padding:11px 0;border-bottom:1px solid var(--line);color:#c7d7e6}
+    .row:last-child{border-bottom:0}
+    .row strong{color:white}
+    .result{margin-top:15px;padding:18px;border-radius:14px;background:rgba(20,224,161,.12);border:1px solid rgba(20,224,161,.3)}
+    .result b{display:block;color:var(--accent);font-size:1.8rem}
+    .offer{
+      max-width:760px;margin:auto;text-align:center;background:white;border:2px solid #dce8e4;
+      border-radius:24px;padding:38px 24px;box-shadow:var(--shadow)
+    }
+    .price{font-size:clamp(3rem,10vw,5rem);font-weight:950;line-height:1;color:#071f37;margin:12px 0}
+    .price small{font-size:1.2rem;font-weight:700}
+    .checks{list-style:none;padding:0;margin:25px auto 28px;max-width:470px;text-align:left}
+    .checks li{margin:12px 0;padding-left:28px;position:relative}
+    .checks li:before{content:"✓";position:absolute;left:0;color:#079b70;font-weight:900}
+    .note{font-size:.86rem;color:#6d7c8b;margin-top:15px}
+    .faq{max-width:820px;margin:auto}
+    details{background:white;border:1px solid #e0e7ee;border-radius:13px;margin:10px 0;padding:17px 19px}
+    summary{cursor:pointer;font-weight:800}
+    details p{color:#637488;margin:13px 0 0}
+    footer{background:#06182d;color:#9fb2c5;padding:30px 0;text-align:center;font-size:.82rem}
+    @media(max-width:760px){
+      body{background:linear-gradient(180deg,var(--bg),#081f38 42%,#f4f7fa 42%,#f4f7fa)}
+      .hero{padding-top:36px}
+      .grid,.example{grid-template-columns:1fr}
+      section{padding:55px 0}
+      .dark{padding:26px 18px}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap brand">PREÇO <span>CERTO</span></div>
+  </header>
+
+  <div class="hero">
+    <div class="wrap">
+      <div class="eyebrow">Para lojistas</div>
+      <h1>Você sabe quanto precisa cobrar para realmente lucrar?</h1>
+      <p>O Preço Certo ajuda você a transformar custo, taxas, impostos e margem desejada em uma decisão de preço mais clara — sem depender do “achismo”.</p>
+      <a class="cta buy" href="https://pay.cakto.com.br/3dt2dk5">QUERO O PREÇO CERTO →</a>
+      <div class="micro">Acesso ao Kit por R$ 29,90 • 7 dias para testar o aplicativo</div>
+    </div>
+  </div>
+
+  <main>
+    <section>
+      <div class="wrap">
+        <h2 class="section-title">O problema não é só vender.</h2>
+        <p class="section-sub">É saber se o preço que você colocou realmente deixa espaço para todos os custos e para o lucro que você espera.</p>
+        <div class="grid">
+          <div class="card"><div class="icon">R$</div><h3>Taxas podem comer sua margem</h3><p>Uma venda que parece lucrativa pode ter outro resultado depois de considerar as taxas envolvidas.</p></div>
+          <div class="card"><div class="icon">%</div><h3>Desconto não pode ser no escuro</h3><p>Antes de reduzir o preço, entenda o impacto que a decisão pode ter na sua margem.</p></div>
+          <div class="card"><div class="icon">✓</div><h3>Chega de fazer conta toda vez</h3><p>Organize os principais componentes da precificação em um único lugar.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <div class="dark">
+          <h2 class="section-title">Preço de venda não deveria ser um chute.</h2>
+          <p style="text-align:center;max-width:720px;margin:0 auto 30px">Você informa os dados da operação e o Preço Certo ajuda a chegar ao valor de venda de acordo com os parâmetros definidos.</p>
+          <div class="example">
+            <div class="calc">
+              <div class="row"><span>Custo do produto</span><strong>R$ 50,00</strong></div>
+              <div class="row"><span>Taxas</span><strong>exemplo</strong></div>
+              <div class="row"><span>Impostos</span><strong>exemplo</strong></div>
+              <div class="row"><span>Margem desejada</span><strong>exemplo</strong></div>
+              <div class="result"><span>Exemplo ilustrativo</span><b>Preço calculado</b></div>
+            </div>
+            <div style="display:flex;flex-direction:column;justify-content:center">
+              <h3 style="font-size:1.6rem;margin:0 0 10px">Você define os parâmetros.</h3>
+              <p style="margin:0 0 22px">A ferramenta organiza o cálculo para você tomar a decisão de preço com mais clareza.</p>
+              <a class="cta buy" href="https://pay.cakto.com.br/3dt2dk5">QUERO ACESSAR →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <h2 class="section-title">O que você recebe</h2>
+        <p class="section-sub">Uma solução pensada para tornar a precificação mais simples no dia a dia do lojista.</p>
+        <div class="grid">
+          <div class="card"><div class="icon">01</div><h3>Kit Preço Certo</h3><p>Seu acesso inicial ao produto por uma compra única de R$ 29,90.</p></div>
+          <div class="card"><div class="icon">02</div><h3>7 dias para testar</h3><p>Após a compra, você tem o período de teste do aplicativo para conhecer a ferramenta.</p></div>
+          <div class="card"><div class="icon">03</div><h3>Continuidade opcional</h3><p>Depois do período de teste, a continuidade do aplicativo custa R$ 19,90 por mês.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <div class="offer">
+          <div class="eyebrow" style="color:#079b70;border-color:#bcefe0">Oferta de lançamento</div>
+          <h2 style="font-size:2rem;margin:16px 0 0">Comece a organizar sua precificação</h2>
+          <div class="price"><small>R$</small> 29,90</div>
+          <div style="color:#637488">pagamento único</div>
+          <ul class="checks">
+            <li>Kit Preço Certo</li>
+            <li>7 dias para testar o aplicativo</li>
+            <li>Ferramenta pensada para lojistas</li>
+            <li>Depois do teste: R$ 19,90/mês para continuar</li>
+          </ul>
+          <a class="cta buy" href="https://pay.cakto.com.br/3dt2dk5">QUERO O PREÇO CERTO →</a>
+          <div class="note">Você será direcionado ao checkout seguro da Cakto.</div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap faq">
+        <h2 class="section-title">Dúvidas frequentes</h2>
+        <details><summary>Preciso instalar algum programa?</summary><p>O Preço Certo foi desenvolvido como aplicação web, permitindo o acesso pelo navegador.</p></details>
+        <details><summary>Funciona pelo celular?</summary><p>A proposta do produto é facilitar o uso pelo celular e pelo computador.</p></details>
+        <details><summary>Quanto custa para começar?</summary><p>O Kit Preço Certo custa R$ 29,90. Após a compra, você tem 7 dias para testar o aplicativo. A continuidade depois desse período custa R$ 19,90 por mês.</p></details>
+        <details><summary>O pagamento é feito onde?</summary><p>Ao clicar no botão, você será levado ao checkout da Cakto para concluir a compra.</p></details>
+      </div>
+    </section>
+
+    <section style="padding-top:20px">
+      <div class="wrap" style="text-align:center">
+        <h2 class="section-title">Antes de definir o preço, faça a conta.</h2>
+        <p class="section-sub">Tenha uma forma mais organizada de pensar na precificação dos seus produtos.</p>
+        <a class="cta buy" href="https://pay.cakto.com.br/3dt2dk5">QUERO O PREÇO CERTO →</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">Preço Certo • Ferramenta de precificação para lojistas</div>
+  </footer>
+
+  <script>
+    document.querySelectorAll('.buy').forEach(function(button){
+      button.addEventListener('click', function(){
+        if (typeof fbq === 'function') {
+          fbq('track', 'InitiateCheckout', {content_name: 'Preço Certo', value: 29.90, currency: 'BRL'});
+        }
+      });
+    });
+  </script>
+</body>
+</html>
